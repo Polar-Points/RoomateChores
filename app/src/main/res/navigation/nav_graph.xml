@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/my_chores_tab">
+
+    <fragment
+        android:id="@+id/my_chores_tab"
+        android:name="dang.marty.roomatechores.ui.MyChoresFrag"
+        android:label="fragment_my_chores"
+        tools:layout="@layout/fragment_my_chores" />
+
+    <fragment
+        android:id="@+id/schedule_tag"
+        android:name="dang.marty.roomatechores.ui.ScheduleFrag"
+        android:label="fragment_schedule"
+        tools:layout="@layout/fragment_schedule" />
+
+    <fragment
+        android:id="@+id/settings_tab"
+        android:name="dang.marty.roomatechores.ui.SettingsFrag"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+
+</navigation>
