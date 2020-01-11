@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
  *   Created by Marty Dang on 2020-01-01
  *   Copyright @ 2019 Dang, Marty. All rights reserved.
  */
-class MyChoresAdapter(private val dataSet: Array<String>) : RecyclerView.Adapter<MyChoresAdapter.ViewHolder>() {
+class MyChoresAdapter(private val dataSet: List<String>) : RecyclerView.Adapter<MyChoresAdapter.ViewHolder>() {
 
     /**
      * Provide a reference to the type of views that you are using (custom ViewHolder)
@@ -21,7 +21,7 @@ class MyChoresAdapter(private val dataSet: Array<String>) : RecyclerView.Adapter
 
         init {
             // Define click listener for the ViewHolder's View.
-            v.setOnClickListener { Log.d(TAG, "Element $adapterPosition clicked.") }
+            v.setOnClickListener { Log.d("DFD", "Element $adapterPosition clicked.") }
             textView = v.findViewById(R.id.textView)
         }
     }
@@ -35,7 +35,7 @@ class MyChoresAdapter(private val dataSet: Array<String>) : RecyclerView.Adapter
 
     // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        Log.d(TAG, "Element $position set.")
+        Log.d("DFD", "Element $position set.")
 
         // Get element from your dataset at this position and replace the contents of the view
         // with that element
@@ -44,8 +44,4 @@ class MyChoresAdapter(private val dataSet: Array<String>) : RecyclerView.Adapter
 
     // Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount() = dataSet.size
-
-    companion object {
-        private val TAG = "CustomAdapter"
-    }
 }

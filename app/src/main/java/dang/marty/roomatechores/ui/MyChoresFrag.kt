@@ -6,38 +6,50 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import dang.marty.roomatechores.MyChoresAdapter
 import dang.marty.roomatechores.R
+import dang.marty.roomatechores.databinding.FragmentMyChoresBinding
+import dang.marty.roomatechores.viewModels.MyChoresViewModel
+import timber.log.Timber
 
 class MyChoresFrag : Fragment() {
 
+    private lateinit var viewModel: MyChoresViewModel
     private lateinit var recyclerView: RecyclerView
-    private lateinit var layoutManager: RecyclerView.LayoutManager
-    private lateinit var dataset: Array<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // Initialize dataset, this data would usually come from a local content provider or
-        // remote server.
-        initDataset()
+        setUpViewModel()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_my_chores, container, false)
-        val recyclerView = view.findViewById<RecyclerView>(R.id.my_chores_recycler_view)
+        val binding: FragmentMyChoresBinding = DataBindingUtil.inflate(layoutInflater, R.layout.fragment_my_chores, container, false)
+        recyclerView = binding.myChoresRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(activity)
-        recyclerView.adapter = MyChoresAdapter(dataset)
-        return view
+        recyclerView.adapter = MyChoresAdapter(listOf("Item 1","ITEM 2", "ITEM 3"))
+        binding.lifecycleOwner = this
+
+        binding.button.setOnClickListener{ clickMe() }
+
+        return binding.root
     }
 
-    /**
-     * Generates Strings for RecyclerView's adapter. This data would usually come
-     * from a local content provider or remote server.
-     */
-    private fun initDataset() {
-        dataset = Array(5, {i -> "This is element # $i"})
+    fun clickMe() {
+        Timber.d("CLICK CALLED")
+        viewModel.getChoresList()
+    }
+
+
+    private fun setUpViewModel() {
+        viewModel = ViewModelProviders.of(this).get(MyChoresViewModel::class.java)
+        viewModel.choresObservable.observe(this, Observer<List<String>>{
+            recyclerView.adapter = MyChoresAdapter(it)
+            recyclerView.adapter?.notifyDataSetChanged()
+        })
     }
 }
