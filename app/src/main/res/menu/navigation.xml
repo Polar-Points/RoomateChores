@@ -6,11 +6,6 @@
         android:title="@string/First_tab_title"/>
 
     <item
-        android:id="@+id/schedule_tag"
-        android:icon="@drawable/schedule_black"
-        android:title="@string/Second_tab_title"/>
-
-    <item
         android:id="@+id/settings_tab"
         android:icon="@drawable/settings_black"
         android:title="@string/Third_tab_title"/>

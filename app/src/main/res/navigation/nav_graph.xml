@@ -12,12 +12,6 @@
         tools:layout="@layout/fragment_my_chores" />
 
     <fragment
-        android:id="@+id/schedule_tag"
-        android:name="dang.marty.roomatechores.ui.ScheduleFrag"
-        android:label="fragment_schedule"
-        tools:layout="@layout/fragment_schedule" />
-
-    <fragment
         android:id="@+id/settings_tab"
         android:name="dang.marty.roomatechores.ui.SettingsFrag"
         android:label="fragment_settings"

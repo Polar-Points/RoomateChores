@@ -31,17 +31,11 @@ class MyChoresFrag : Fragment() {
         val binding: FragmentMyChoresBinding = DataBindingUtil.inflate(layoutInflater, R.layout.fragment_my_chores, container, false)
         recyclerView = binding.myChoresRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(activity)
-        recyclerView.adapter = MyChoresAdapter(listOf("Item 1","ITEM 2", "ITEM 3"))
+        recyclerView.adapter = MyChoresAdapter(listOf(""))
         binding.lifecycleOwner = this
 
-        binding.button.setOnClickListener{ clickMe() }
-
+        viewModel.getChoresListFromLocal()
         return binding.root
-    }
-
-    fun clickMe() {
-        Timber.d("CLICK CALLED")
-        viewModel.getChoresList()
     }
 
 
