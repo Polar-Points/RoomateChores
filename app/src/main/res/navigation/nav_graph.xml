@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/my_chores_tab">
+    app:startDestination="@id/login_tab">
 
     <fragment
         android:id="@+id/my_chores_tab"
@@ -16,5 +16,10 @@
         android:name="dang.marty.roomatechores.ui.SettingsFrag"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/login_tab"
+        android:name="dang.marty.roomatechores.ui.LoginFrag"
+        android:label="login_fragment"
+        tools:layout="@layout/login_fragment" />
 
 </navigation>

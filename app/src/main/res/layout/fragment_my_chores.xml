@@ -16,32 +16,29 @@
 
 
         <TextView
-            android:id="@+id/greeting_text_field"
-            android:text="@string/generic_greeting"
-
+            android:id="@+id/date_text_field"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-
-            app:layout_constraintHeight_default="spread"
+            android:gravity="bottom|start"
+            android:text="@string/date"
+            android:textSize="25dp"
+            app:layout_constraintBottom_toTopOf="@+id/my_chores_recycler_view"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHeight_percent=".2"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.792" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/my_chores_recycler_view"
+            android:scrollbars="vertical"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:scrollbars="vertical"
+            app:layout_constraintHeight_percent=".8"
             app:layout_constraintBottom_toBottomOf="parent"
-
-
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_default="spread"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/greeting_text_field"
-            app:layout_constraintVertical_weight="2" />
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

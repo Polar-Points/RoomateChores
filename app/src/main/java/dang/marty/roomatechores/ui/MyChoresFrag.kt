@@ -34,7 +34,7 @@ class MyChoresFrag : Fragment() {
         recyclerView.adapter = MyChoresAdapter(listOf(""))
         binding.lifecycleOwner = this
 
-        viewModel.getChoresListFromLocal()
+        viewModel.getChoreListFromRemote()
         return binding.root
     }
 

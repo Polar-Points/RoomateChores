@@ -3,5 +3,6 @@
     <string name="First_tab_title">My Chores</string>
     <string name="Second_tab_title">Schedule</string>
     <string name="Third_tab_title">Settings</string>
-    <string name="generic_greeting">Hey there! These are your chores!</string>
+    <string name="top_greeting">Hello Marty</string>
+    <string name="date">My Week\nSun 22 Jan - Sun 03 Feb</string>
 </resources>
