@@ -1,4 +1,4 @@
-package dang.marty.roomatechores.ui
+package dang.marty.roomatechores.ui.fragments
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -13,8 +13,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 import dang.marty.roomatechores.R
+import dang.marty.roomatechores.ui.LoginViewModel
 import timber.log.Timber
-import kotlin.math.log
 
 class LoginFrag : Fragment() {
 

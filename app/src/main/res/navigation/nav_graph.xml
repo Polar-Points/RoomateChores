@@ -18,8 +18,12 @@
         tools:layout="@layout/fragment_settings" />
     <fragment
         android:id="@+id/login_tab"
-        android:name="dang.marty.roomatechores.ui.LoginFrag"
+        android:name="dang.marty.roomatechores.ui.fragments.LoginFrag"
         android:label="login_fragment"
-        tools:layout="@layout/login_fragment" />
+        tools:layout="@layout/login_fragment" >
+        <action
+            android:id="@+id/action_login_tab_to_my_chores_tab"
+            app:destination="@id/my_chores_tab" />
+    </fragment>
 
 </navigation>
