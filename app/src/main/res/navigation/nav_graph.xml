@@ -3,27 +3,48 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/login_tab">
+    app:startDestination="@id/loginFrag">
 
     <fragment
         android:id="@+id/my_chores_tab"
-        android:name="dang.marty.roomatechores.ui.MyChoresFrag"
+        android:name="dang.marty.roomatechores.presentation.fragments.MyChoresFrag"
         android:label="fragment_my_chores"
         tools:layout="@layout/fragment_my_chores" />
 
     <fragment
         android:id="@+id/settings_tab"
-        android:name="dang.marty.roomatechores.ui.SettingsFrag"
+        android:name="dang.marty.roomatechores.presentation.SettingsFrag"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
     <fragment
-        android:id="@+id/login_tab"
-        android:name="dang.marty.roomatechores.ui.fragments.LoginFrag"
+        android:id="@+id/loginFrag"
+        android:name="dang.marty.roomatechores.presentation.fragments.LoginFrag"
         android:label="login_fragment"
         tools:layout="@layout/login_fragment" >
         <action
-            android:id="@+id/action_login_tab_to_my_chores_tab"
+            android:id="@+id/action_loginFrag_to_registerFrag"
+            app:destination="@id/registerFrag"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_in_right"
+             />
+        <action
+            android:id="@+id/action_loginFrag_to_my_chores_tab"
             app:destination="@id/my_chores_tab" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFrag"
+        android:name="dang.marty.roomatechores.presentation.fragments.RegisterFrag"
+        android:label="RegisterFrag" >
+        <action
+            android:id="@+id/action_registerFrag_to_my_chores_tab"
+            app:destination="@id/my_chores_tab" />
+        <action
+            android:id="@+id/action_registerFrag_to_loginFrag"
+            app:destination="@id/loginFrag"
+            app:enterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
 
 </navigation>

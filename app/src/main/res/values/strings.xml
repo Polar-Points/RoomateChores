@@ -6,6 +6,8 @@
     <string name="top_greeting">Hello Marty</string>
     <string name="date">My Week\nSun 22 Jan - Sun 03 Feb</string>
 
+    <string name="log_out_icon">logout</string>
+
     <!-- Onboarding Fragment Strings  -->
     <string name="login_screen_title">Roommate Chores</string>
     <string name="login_screen_subtitle">Make sure your roommates do their chores</string>

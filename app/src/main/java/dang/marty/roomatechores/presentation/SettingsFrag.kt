@@ -1,4 +1,4 @@
-package dang.marty.roomatechores.ui.fragments
+package dang.marty.roomatechores.presentation
 
 
 import android.os.Bundle
@@ -12,12 +12,10 @@ import dang.marty.roomatechores.R
 /**
  * A simple [Fragment] subclass.
  */
-class RegistrationFrag : Fragment() {
+class SettingsFrag : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_onboarding, container, false)
+        return inflater.inflate(R.layout.fragment_settings, container, false)
     }
-
-
 }

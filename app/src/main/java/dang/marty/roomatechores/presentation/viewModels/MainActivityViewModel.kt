@@ -1,4 +1,4 @@
-package dang.marty.roomatechores.viewModels
+package dang.marty.roomatechores.presentation.viewModels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -31,5 +31,9 @@ class MainActivityViewModel: ViewModel() {
         } else {
             authenticationState.value = AuthenticationState.UNAUTHENTICATED
         }
+    }
+
+    fun logUserOut() {
+        repo.logUserOut()
     }
 }

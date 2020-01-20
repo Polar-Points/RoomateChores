@@ -1,4 +1,4 @@
-package dang.marty.roomatechores
+package dang.marty.roomatechores.presentation.adapters
 
 import android.util.Log
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import dang.marty.roomatechores.R
 
 /**
  *   Created by Marty Dang on 2020-01-01

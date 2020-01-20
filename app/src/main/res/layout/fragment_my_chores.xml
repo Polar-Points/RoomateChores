@@ -6,13 +6,13 @@
     <data>
         <variable
             name="viewModel"
-            type="dang.marty.roomatechores.ui.MyChoresFrag" />
+            type="dang.marty.roomatechores.presentation.fragments.MyChoresFrag" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.MyChoresFrag">
+        tools:context=".presentation.fragments.MyChoresFrag">
 
 
         <TextView

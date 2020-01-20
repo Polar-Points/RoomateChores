@@ -1,4 +1,4 @@
-package dang.marty.roomatechores.viewModels
+package dang.marty.roomatechores.presentation.viewModels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -15,6 +15,7 @@ class MyChoresViewModel: ViewModel() {
     val choresObservable: MutableLiveData<List<String>> by lazy {
         MutableLiveData<List<String>>()
     }
+
 
     // read from database only when they restart the app, save it locally if they go from it
 
