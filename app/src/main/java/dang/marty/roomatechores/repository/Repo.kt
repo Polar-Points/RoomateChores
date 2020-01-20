@@ -4,7 +4,9 @@ package dang.marty.roomatechores.repository
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
-import io.reactivex.Observable
+import com.google.firebase.auth.GetTokenResult
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.auth.Token
 
 /**
  *   Created by Marty Dang on 2020-01-11
@@ -14,13 +16,29 @@ class Repo {
 
     private var auth = FirebaseAuth.getInstance()
 
+    fun createNewUser(email: String, password: String): Task<AuthResult> {
+        return auth.createUserWithEmailAndPassword(email, password)
+    }
+
+    fun addNewUserToDB(idToken: String, code: String): Task<Void> {
+        val chores = hashMapOf(
+            "ChoresList" to listOf("Eat", "sleep", "drink")
+        )
+        val db = FirebaseFirestore.getInstance()
+        return db.document("groups/$code/users/$idToken").set(chores)
+    }
+
+    fun getUserToken(): Task<GetTokenResult>? {
+        val user = FirebaseAuth.getInstance().currentUser
+        return user?.getIdToken(true)
+    }
+
     fun isUserLoggedIn(): Boolean  {
         if(FirebaseAuth.getInstance().currentUser != null){
             return true
         }
         return false
     }
-
 
     fun loggedInSuccessfully(email: String, password: String): Task<AuthResult> {
         return auth.signInWithEmailAndPassword(email, password)
@@ -35,14 +53,6 @@ class Repo {
     }
 
     fun getChoresSavedRemotely(): List<String> {
-
-//        val db = FirebaseFirestore.getInstance()
-//        db.collection("groups/group2/users").get().addOnSuccessListener {
-//             it.documents.forEach {
-//                Timber.d("YOO %s", it.id)
-//            }
-//        }
-
         return listOf("Sweep up kitchen", "Wipe counter")
     }
 }

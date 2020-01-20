@@ -29,18 +29,11 @@ class MainActivity : AppCompatActivity() {
         setUpNavigation()
         setSupportActionBar(findViewById(R.id.toolbar))
         Timber.plant(Timber.DebugTree())
-
     }
 
     override fun onStart() {
         super.onStart()
-        viewModel.authenticationState.observe(this, Observer { authenticationState ->
-            when (authenticationState) {
-                AuthenticationState.UNAUTHENTICATED -> initializedUnAuthenticatedState()
-                AuthenticationState.AUTHENTICATED -> initializeAuthenticatedState()
-                else -> {}
-            }
-        })
+        isUserAuthenticated()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -53,7 +46,6 @@ class MainActivity : AppCompatActivity() {
             R.id.log_out -> {
                 viewModel.logUserOut()
                 initializedUnAuthenticatedState()
-
             }
         }
         return true
@@ -63,11 +55,18 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProviders.of(this)[MainActivityViewModel::class.java]
     }
 
+    private fun isUserAuthenticated() {
+        viewModel.authenticationState.observe(this, Observer { authenticationState ->
+            when (authenticationState) {
+                AuthenticationState.UNAUTHENTICATED -> initializedUnAuthenticatedState()
+                AuthenticationState.AUTHENTICATED -> initializeAuthenticatedState()
+                else -> {}
+            }
+        })
+    }
+
     private fun setUpNavigation() {
         navController = Navigation.findNavController(this, R.id.nav_host_fragment)
-
-//        val appBarConfiguration = AppBarConfiguration(navController.graph)
-//        findViewById<Toolbar>(R.id.toolbar).setupWithNavController(navController, appBarConfiguration)
         NavigationUI.setupWithNavController(bottom_navigation, navController)
     }
 

@@ -25,7 +25,6 @@ class MainActivityViewModel: ViewModel() {
     }
 
     private fun isUserLoggedIn() {
-        Timber.d("isUserLoggedIn %s", repo.isUserLoggedIn())
         if (repo.isUserLoggedIn()) {
             authenticationState.value = AuthenticationState.AUTHENTICATED
         } else {
