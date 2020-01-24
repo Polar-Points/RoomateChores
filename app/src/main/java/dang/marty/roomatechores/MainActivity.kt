@@ -72,11 +72,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun initializeAuthenticatedState() {
         findViewById<BottomNavigationView>(R.id.bottom_navigation).visibility = View.VISIBLE
-        navController.navigate(R.id.my_chores_tab)
+//        navController.navigate(R.id.my_chores_tab)
     }
 
     private fun initializedUnAuthenticatedState() {
-        findViewById<BottomNavigationView>(R.id.bottom_navigation).visibility = View.GONE
-        navController.navigate(R.id.loginFrag)
+       // findViewById<BottomNavigationView>(R.id.bottom_navigation).visibility = View.GONE
+//        navController.navigate(R.id.loginFrag)
+        navController.navigate(R.id.my_chores_tab)
+
     }
 }

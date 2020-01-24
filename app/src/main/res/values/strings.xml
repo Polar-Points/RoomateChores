@@ -7,6 +7,13 @@
     <string name="date">My Week\nSun 22 Jan - Sun 03 Feb</string>
 
     <string name="log_out_icon">logout</string>
+    <string name="admin_tab">Admin</string>
+
+    <!-- Group Fragment Strings  -->
+
+    <string name="group_screen_title">Your group\'s code</string>
+    <string name="group_screen_code_placeholder">12345</string>
+    <string name="member_list_heading">Members</string>
 
     <!-- Onboarding Fragment Strings  -->
     <string name="login_screen_title">Roommate Chores</string>

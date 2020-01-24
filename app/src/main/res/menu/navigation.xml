@@ -10,4 +10,8 @@
         android:icon="@drawable/settings_black"
         android:title="@string/Third_tab_title"/>
 
+    <item
+        android:id="@+id/admin_tab"
+        android:icon="@drawable/ic_admin"
+        android:title="@string/admin_tab"/>
 </menu>

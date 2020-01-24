@@ -30,8 +30,7 @@ class MyChoresFrag : Fragment() {
         val binding: FragmentMyChoresBinding = DataBindingUtil.inflate(layoutInflater, R.layout.fragment_my_chores, container, false)
         recyclerView = binding.myChoresRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(activity)
-        recyclerView.adapter =
-            MyChoresAdapter(listOf(""))
+        recyclerView.adapter = MyChoresAdapter(listOf(""))
         binding.lifecycleOwner = this
 
         viewModel.getChoreListFromRemote()
