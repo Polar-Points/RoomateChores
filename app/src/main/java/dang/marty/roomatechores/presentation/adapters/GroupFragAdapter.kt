@@ -13,7 +13,7 @@ import dang.marty.roomatechores.R
  *   Created by Marty Dang on 2020-01-22
  *   Copyright @ 2019 Dang, Marty. All rights reserved.
  */
-class AdminFragAdapter(private val context: Context, private val dataSet: List<String>) : BaseAdapter(){
+class GroupFragAdapter(private val context: Context, private val dataSet: List<String>) : BaseAdapter(){
 
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View? {

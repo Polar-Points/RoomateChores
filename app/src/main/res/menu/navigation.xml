@@ -6,12 +6,12 @@
         android:title="@string/First_tab_title"/>
 
     <item
+        android:id="@+id/group_tab"
+        android:icon="@drawable/ic_admin"
+        android:title="@string/group_tab"/>
+
+    <item
         android:id="@+id/settings_tab"
         android:icon="@drawable/settings_black"
         android:title="@string/Third_tab_title"/>
-
-    <item
-        android:id="@+id/admin_tab"
-        android:icon="@drawable/ic_admin"
-        android:title="@string/admin_tab"/>
 </menu>

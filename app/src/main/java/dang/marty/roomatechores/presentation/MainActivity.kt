@@ -1,4 +1,4 @@
-package dang.marty.roomatechores
+package dang.marty.roomatechores.presentation
 
 import android.os.Bundle
 import android.view.Menu
@@ -11,6 +11,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import dang.marty.roomatechores.R
 import dang.marty.roomatechores.presentation.viewModels.MainActivityViewModel
 import dang.marty.roomatechores.presentation.viewModels.MainActivityViewModel.AuthenticationState
 import kotlinx.android.synthetic.main.activity_main.*
@@ -35,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
         isUserAuthenticated()
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.toolbar_menu, menu)
@@ -66,7 +68,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setUpNavigation() {
-        navController = Navigation.findNavController(this, R.id.nav_host_fragment)
+        navController = Navigation.findNavController(this,
+            R.id.nav_host_fragment
+        )
         NavigationUI.setupWithNavController(bottom_navigation, navController)
     }
 

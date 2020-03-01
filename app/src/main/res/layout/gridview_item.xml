@@ -7,8 +7,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_gravity="center"
         android:layout_margin="10dp"
         app:cardPreventCornerOverlap="true"
@@ -16,11 +16,12 @@
         app:cardElevation="4dp">
 
         <TextView
+            android:layout_gravity="center"
             android:id="@+id/member_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:text="FDFDSFSDFDS"
+            android:text="Member name"
             />
 
 

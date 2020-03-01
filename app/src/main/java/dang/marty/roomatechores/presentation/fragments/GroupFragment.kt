@@ -9,12 +9,13 @@ import android.widget.AdapterView.OnItemClickListener
 import android.widget.GridView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import dang.marty.roomatechores.R
-import dang.marty.roomatechores.presentation.adapters.AdminFragAdapter
+import dang.marty.roomatechores.presentation.adapters.GroupFragAdapter
 import timber.log.Timber
 
 
-class AdminFragment : Fragment() {
+class GroupFragment : Fragment() {
 
     private lateinit var gridView: GridView
 
@@ -22,9 +23,10 @@ class AdminFragment : Fragment() {
         val view =  inflater.inflate(R.layout.fragment_admin, container, false)
 
         gridView = view.findViewById(R.id.members_gridview)
-        gridView.adapter = AdminFragAdapter(context!!, listOf("David", "August", "marty"))
+        gridView.adapter = GroupFragAdapter(context!!, listOf("David", "August", "marty"))
         gridView.onItemClickListener =
             OnItemClickListener { parent, view, position, id ->
+//                findNavController().navigate(action)
 
                 val member = view.findViewById<TextView>(R.id.member_name)
                 Timber.d("Stuff %s", member.text )

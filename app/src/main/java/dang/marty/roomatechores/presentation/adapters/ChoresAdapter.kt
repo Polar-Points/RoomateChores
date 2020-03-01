@@ -12,7 +12,7 @@ import dang.marty.roomatechores.R
  *   Created by Marty Dang on 2020-01-01
  *   Copyright @ 2019 Dang, Marty. All rights reserved.
  */
-class MyChoresAdapter(private val dataSet: List<String>) : RecyclerView.Adapter<MyChoresAdapter.ViewHolder>() {
+class ChoresAdapter(private val dataSet: List<String>) : RecyclerView.Adapter<ChoresAdapter.ViewHolder>() {
 
     /**
      * Provide a reference to the type of views that you are using (custom ViewHolder)
