@@ -13,7 +13,9 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 
 import dang.marty.roomatechores.R
+import dang.marty.roomatechores.Utils
 import dang.marty.roomatechores.presentation.viewModels.LoginViewModel
+import timber.log.Timber
 
 class LoginFrag : Fragment(){
 
@@ -42,6 +44,7 @@ class LoginFrag : Fragment(){
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view =  inflater.inflate(R.layout.login_fragment, container, false)
         setUpView(view)
+        Timber.d("DFSFDSF " + Utils.generateGroupCode())
         return view
     }
 
