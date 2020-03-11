@@ -21,15 +21,17 @@ class LoginFrag : Fragment(){
 
     private lateinit var emailField: EditText
     private lateinit var passwordField: EditText
-    private lateinit var loginButton: Button
-    private lateinit var registerButton: Button
 
-    private val loginButtonOnClick = View.OnClickListener {
-        viewModel.authenticateUser(emailField.text.toString(), passwordField.text.toString())
+    private lateinit var mainButton: Button
+    private lateinit var secondaryButton: Button
+
+    private val mainButtonOnClick = View.OnClickListener {
+        viewModel.determineMainButtonAction(emailField.text.toString(), passwordField.text.toString())
     }
 
-    private val registerButtonOnClick = View.OnClickListener {
-        findNavController().navigate(R.id.registerFrag)
+    private val secondaryButtonOnClick = View.OnClickListener {
+        viewModel.determineSecondaryButtonAction()
+//        findNavController().navigate(R.id.registerFrag)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,6 +47,15 @@ class LoginFrag : Fragment(){
 
     private fun setUpViewModel() {
         viewModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
+        viewModel.onBoardFragObservable.observe(this, Observer<String> {
+            if(it == "Login"){
+                mainButton.text = "Login"
+                secondaryButton.text = "Create a new account"
+            } else {
+                mainButton.text = "Register"
+                secondaryButton.text = "Login to account"
+            }
+        })
         viewModel.loginObservable.observe(this, Observer<Boolean> { userSuccessfullyloggedIn ->
             if (userSuccessfullyloggedIn){
                 findNavController().navigate(R.id.my_chores_tab)
@@ -52,15 +63,28 @@ class LoginFrag : Fragment(){
                showUnsuccessfulLoginMessage()
             }
         })
+        viewModel.registerObservable.observe(this, Observer<Boolean>{ registerSuccess ->
+            if(registerSuccess){
+                val builder = AlertDialog.Builder(context)
+                builder.setTitle("Account created successfully!")
+                builder.setMessage("Please login with your new creds")
+                builder.create().show()
+            } else {
+                val builder = AlertDialog.Builder(context)
+                builder.setTitle("Unable to create account")
+                builder.setMessage("Something went wrong")
+                builder.create().show()
+            }
+        })
     }
 
     private fun setUpView(view: View) {
         emailField  = view.findViewById(R.id.email_field)
         passwordField = view.findViewById(R.id.password_field)
-        loginButton = view.findViewById(R.id.login_button)
-        registerButton = view.findViewById(R.id.register_button)
-        registerButton.setOnClickListener(registerButtonOnClick)
-        loginButton.setOnClickListener(loginButtonOnClick)
+        mainButton = view.findViewById(R.id.main_button)
+        mainButton.setOnClickListener(mainButtonOnClick)
+        secondaryButton = view.findViewById(R.id.secondary_button)
+        secondaryButton.setOnClickListener(secondaryButtonOnClick)
         emailField.setText("martydang1@gmail.com")
         passwordField.setText("Bottomline123")
     }

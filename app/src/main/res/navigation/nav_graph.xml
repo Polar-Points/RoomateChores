@@ -30,29 +30,8 @@
         android:label="login_fragment"
         tools:layout="@layout/login_fragment" >
         <action
-            android:id="@+id/action_loginFrag_to_registerFrag"
-            app:destination="@id/registerFrag"
-            app:enterAnim="@anim/slide_in_left"
-            app:exitAnim="@anim/wait_anim"
-            app:popEnterAnim="@anim/wait_anim"
-            app:popExitAnim="@anim/slide_in_right"
-             />
-        <action
             android:id="@+id/action_loginFrag_to_my_chores_tab"
             app:destination="@id/my_chores_tab" />
-    </fragment>
-    <fragment
-        android:id="@+id/registerFrag"
-        android:name="dang.marty.roomatechores.presentation.fragments.RegisterFrag"
-        android:label="RegisterFrag" >
-        <action
-            android:id="@+id/action_registerFrag_to_my_chores_tab"
-            app:destination="@id/my_chores_tab" />
-        <action
-            android:id="@+id/action_registerFrag_to_loginFrag"
-            app:destination="@id/loginFrag"
-            app:enterAnim="@anim/nav_default_pop_enter_anim"
-            app:exitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/group_tab"

@@ -5,6 +5,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.NavController
@@ -36,7 +37,6 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
         isUserAuthenticated()
     }
-
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.toolbar_menu, menu)
@@ -76,13 +76,15 @@ class MainActivity : AppCompatActivity() {
 
     private fun initializeAuthenticatedState() {
         findViewById<BottomNavigationView>(R.id.bottom_navigation).visibility = View.VISIBLE
+        findViewById<Toolbar>(R.id.toolbar).visibility = View.VISIBLE
 //        navController.navigate(R.id.my_chores_tab)
     }
 
     private fun initializedUnAuthenticatedState() {
-       // findViewById<BottomNavigationView>(R.id.bottom_navigation).visibility = View.GONE
-//        navController.navigate(R.id.loginFrag)
-        navController.navigate(R.id.my_chores_tab)
+        findViewById<BottomNavigationView>(R.id.bottom_navigation).visibility = View.GONE
+        findViewById<Toolbar>(R.id.toolbar).visibility = View.GONE
+        navController.navigate(R.id.loginFrag)
+        //navController.navigate(R.id.my_chores_tab)
 
     }
 }
